@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pixelimagee
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pixelimagee
+  template:
+    metadata:
+      labels:
+        app: pixelimagee
+    spec:
+      containers:
+      - name: pixelimagee
+        image: us.icr.io/pixel_perfection/pixe:1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
